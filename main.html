@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random URL Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Add your existing styles here */
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="site-name">Tesla Referral Generator</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home" class="nav-link">Get</a></li>
+          <li><a href="#add" class="nav-link">Add </a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="body background">
+      <section id="home" class="page">
+        <div class="container">
+          <h1>Lets get you a Referral link</h1>
+          <div id="url" class="input-field-container">
+            Click the button to generate a URL
+          </div>
+          <button onclick="generateRandomURL()" class="submit-button">
+            Generate Random URL
+          </button>
+          <p class="add-code-link">
+            Have a Referral link? add it to our page
+            <a href="#about" class="footer-link nav-link">here</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="add" class="page" style="display: none">
+        <div class="container">
+          <h1>Submit your link here</h1>
+          <div id="add-url" class="input-field-container">
+            <input
+              type="text"
+              id="inputField"
+              class="input-field"
+              placeholder="Add Your Link Here"
+            />
+          </div>
+          <button class="submit-button" id="submitButton">
+            Submit your Link
+          </button>
+          <p class="add-code-link">
+            Need a Referral link? Get on
+            <a href="#home" class="footer-link">here</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

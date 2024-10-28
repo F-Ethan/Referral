@@ -1,0 +1,161 @@
+body {
+  position: relative;
+  /* background-image: url("images/rushingWater.jpg"); */
+  background-image: url("images/modelX.jpg");
+  /* background-image: url("images/tesla-lineup-exploring-models.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.body,
+html {
+  height: 100%; /* Ensure the body takes up the full height */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Set a nice font */
+  display: flex; /* Center the container in the viewport */
+  justify-content: center;
+  align-items: center;
+  color: #e8e8e8;
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background: rgba(255, 255, 255, 0.5);  Black with 50% opacity */
+  z-index: 1; /* Place it above the background but below content */
+}
+
+.header {
+  /* background-color: #868f98; /* Background building grey  */
+  background-color: #e7ded5; /* Background building white */
+  color: #e8e8e8; /* Text color */
+  padding: 15px 30px; /* Padding around the header */
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between site name and nav */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Full width of the viewport */
+  position: fixed; /* Fixes the header at the top */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left edge */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.site-name {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Larger font size */
+}
+
+.nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Horizontal layout */
+}
+
+.nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Horizontal layout */
+  max-width: calc(100% - 80px);
+  justify-content: flex-end; /* Align links to the right */
+}
+
+.nav li {
+  margin-left: 20px; /* Space between links */
+}
+
+a {
+  /* color: white; /* Text color */
+  color: #3c3642;
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Font size */
+  z-index: 100;
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Add some top margin to the main content to avoid overlap with the header */
+.main-content {
+  margin-top: 80px; /* Adjust this value based on header height */
+}
+
+h1,
+button {
+  position: relative; /* Make sure text is above the overlay */
+  z-index: 2; /* Bring content above the overlay */
+  color: #191a1f; /* Change text color for visibility */
+}
+
+section {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  /* background-color: /* #868f98; Light background color grey */
+  background-color: #e7ded5; /* Background building white */
+  opacity: 0.93;
+  padding: 40px 70px; /* Padding around the content */
+  border-radius: 50px; /* Oval shape */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #191a1f;
+  z-index: 100;
+}
+
+.input-field-container {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 30px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between input and button */
+  font-size: 16px; /* Font size */
+}
+
+.input-field {
+  width: 90%;
+  padding: 10px; /* Padding inside the input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 30px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between input and button */
+  font-size: 16px; /* Font size */
+}
+
+.submit-button {
+  width: 100%; /* Full width */
+  padding: 10px; /* Button padding */
+  border: none; /* No border */
+  border-radius: 30px; /* Rounded corners */
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.submit-button:hover {
+  background-color: #007bff; /* Darker on hover */
+}
+
+.add-code-link {
+  margin-top: 30px; /* Space above the link */
+  text-decoration: none; /* Remove underline */
+  font-size: 14px; /* Font size */
+}
+.footer-link {
+  color: #007bff; /* Link color */
+}
+
+.footer-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
