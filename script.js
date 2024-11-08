@@ -1,7 +1,18 @@
 async function generateRandomURL() {
   try {
-    const response = await fetch("http://localhost:5000/random-url");
+    const response = await fetch(
+      "https://teslareferral.netlify.app/.netlify/functions/random-url",
+      {
+        method: "POST", // Specify the POST method
+        headers: {
+          "Content-Type": "application/json", // Indicate you're sending JSON
+        },
+        body: JSON.stringify({}), // Empty body or include any data if needed
+      }
+    );
+
     if (!response.ok) throw new Error("Network response was not ok");
+
     const data = await response.json();
     const randomURL = data.URL; // Assuming the URL field in your MongoDB document is named "url"
     const urlDisplay = document.getElementById("url");
