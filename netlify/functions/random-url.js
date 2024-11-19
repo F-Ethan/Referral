@@ -31,29 +31,6 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // Parse the request body to get the new URL data
-  let requestBody;
-  try {
-    requestBody = JSON.parse(event.body);
-  } catch (err) {
-    return {
-      statusCode: 400, // Bad Request
-      headers,
-      body: JSON.stringify({ error: "Invalid JSON in request body" }),
-    };
-  }
-
-  const { url } = requestBody;
-
-  // Validate the URL
-  if (!url || typeof url !== "string" || !url.startsWith("http")) {
-    return {
-      statusCode: 400, // Bad Request
-      headers,
-      body: JSON.stringify({ error: "Invalid URL provided" }),
-    };
-  }
-
   const client = new MongoClient(mongoURI);
 
   try {
@@ -62,25 +39,34 @@ exports.handler = async (event, context) => {
     const db = client.db(dbName);
     const collection = db.collection("URLs");
 
-    // Insert the new URL into the MongoDB collection
-    const result = await collection.insertOne({ url });
+    // Fetch all URLs from MongoDB
+    const data = await collection.find({}).toArray();
 
-    // Return success response with the inserted URL
+    if (data.length === 0) {
+      return {
+        statusCode: 404,
+        headers,
+        body: JSON.stringify({ error: "No URLs found" }),
+      };
+    }
+
+    // Picks a random index between 0 and data.length - 1
+    const randomIndex = Math.floor(Math.random() * data.length);
+    const randomUrl = data[randomIndex];
+
+    // Return the randomly selected URL
     return {
-      statusCode: 201, // Created
+      statusCode: 200,
       headers,
-      body: JSON.stringify({
-        message: "URL successfully added",
-        url: result.ops[0].url,
-      }),
+      body: JSON.stringify(randomUrl),
     };
   } catch (err) {
-    console.error("Error inserting data into MongoDB:", err);
+    console.error("Error fetching data from MongoDB:", err);
 
     return {
       statusCode: 500, // Internal Server Error
       headers,
-      body: JSON.stringify({ error: "Failed to insert data" }),
+      body: JSON.stringify({ error: "Failed to fetch data" }),
     };
   } finally {
     // Close the MongoDB connection
