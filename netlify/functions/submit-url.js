@@ -57,7 +57,7 @@ exports.handler = async (event, context) => {
         return false;
       }
 
-      const isValid = await checkUrl(url);
+      const isValid = await validateAndCheckUrl(url);
       if (isValid) {
         console.log("URL is valid and reachable.");
         return true;
