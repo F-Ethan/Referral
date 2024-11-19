@@ -1,68 +1,48 @@
+/*
+Setting up the whole site
+Resetting html and body for full-page layout
+*/
+html,
 body {
-  position: relative;
-  /* background-image: url("images/rushingWater.jpg"); */
-  background-image: url("images/modelX.jpg");
-  /* background-image: url("images/tesla-lineup-exploring-models.jpg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body,
-html {
-  height: 100%; /* Ensure the body takes up the full height */
+  min-height: 100%; /* Full height */
+  width: 100%; /* Full width */
   margin: 0; /* Remove default margin */
-  font-family: Arial, sans-serif; /* Set a nice font */
-  display: flex; /* Center the container in the viewport */
-  justify-content: center;
-  align-items: center;
-  color: #e8e8e8;
+  font-family: Arial, sans-serif; /* Default font */
+  display: flex; /* Use Flexbox for layout */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  background-color: #f4f4f4; /* Background color */
+  color: #333333; /* Text color */
 }
 
-.body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /*background: rgba(255, 255, 255, 0.5);  Black with 50% opacity */
-  z-index: 1; /* Place it above the background but below content */
-}
-
+/* Header styling */
 .header {
-  /* background-color: #868f98; /* Background building grey  */
-  background-color: #e7ded5; /* Background building white */
-  color: #e8e8e8; /* Text color */
-  padding: 15px 30px; /* Padding around the header */
-  display: flex; /* Flexbox for alignment */
+  background-color: #2c3e50; /* Light beige background */
+  color: #ffffff; /* Text color */
+  padding: 15px 30px; /* Header padding */
+  display: flex; /* Flexbox for layout */
   justify-content: space-between; /* Space between site name and nav */
   align-items: center; /* Center items vertically */
-  width: 100%; /* Full width of the viewport */
-  position: fixed; /* Fixes the header at the top */
-  top: 0; /* Align to the top of the viewport */
-  left: 0; /* Align to the left edge */
-  z-index: 1000; /* Ensure it stays above other content */
+  width: 100%; /* Full width */
+  position: fixed; /* Fix header at top */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure header stays above other content */
 }
 
+/* Site name styling */
 .site-name {
-  margin: 0; /* Remove default margin */
-  font-size: 24px; /* Larger font size */
+  margin: 0;
+  font-size: 24px; /* Site name font size */
 }
 
+/* Navigation styling */
 .nav ul {
-  list-style: none; /* Remove bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove list bullets */
+  margin: 0;
+  padding: 0;
   display: flex; /* Horizontal layout */
-}
-
-.nav ul {
-  list-style: none; /* Remove bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Horizontal layout */
-  max-width: calc(100% - 80px);
+  max-width: calc(100% - 80px); /* Prevent links from wrapping */
   justify-content: flex-end; /* Align links to the right */
 }
 
@@ -71,91 +51,92 @@ html {
 }
 
 a {
-  /* color: white; /* Text color */
-  color: #3c3642;
+  color: #ffffff; /* Link text color */
   text-decoration: none; /* Remove underline */
   font-size: 16px; /* Font size */
-  z-index: 100;
 }
 
 a:hover {
   text-decoration: underline; /* Underline on hover */
 }
 
-/* Add some top margin to the main content to avoid overlap with the header */
+.body-content {
+  min-height: 100%; /* Ensure the body and html take up full height of the viewport */
+  min-width: 100%;
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Set default font */
+  display: flex; /* Flexbox for centering content */
+  flex-direction: column; /* Ensure content takes the full page height */
+  color: #333333; /* Set text color */
+  position: relative; /* Ensure correct positioning for the overlay */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+/* Main content styling */
 .main-content {
-  margin-top: 80px; /* Adjust this value based on header height */
+  display: flex; /* Enable flexbox inside */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  width: 100%; /* Make it full width */
+  min-height: 100vh; /* Full viewport height */
+  /* animation: colorChange 5s infinite alternate; /* 5 seconds cycle, infinite, alternating between colors */
+  background-color: #f4f4f4;
+  padding: 20px; /* Padding around the content */
+  z-index: 0; /* Ensure content appears above background */
 }
 
-h1,
-button {
-  position: relative; /* Make sure text is above the overlay */
-  z-index: 2; /* Bring content above the overlay */
-  color: #191a1f; /* Change text color for visibility */
-}
-
-section {
+.page-body {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Add a max width to avoid content stretching on large screens */
+  margin: 0; /* Remove default margin */
+  padding: 20px; /* Padding inside the page body */
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+  margin: 0;
+  padding: 50px; /* Padding inside each section */
 }
 
 .container {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  /* background-color: /* #868f98; Light background color grey */
-  background-color: #e7ded5; /* Background building white */
-  opacity: 0.93;
-  padding: 40px 70px; /* Padding around the content */
-  border-radius: 50px; /* Oval shape */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  color: #191a1f;
-  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 70px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  width: 100%;
+  max-width: 800px; /* Set a max width to prevent the content from stretching too wide */
+  text-align: center;
 }
 
-.input-field-container {
-  width: 100%; /* Full width */
-  padding: 10px; /* Padding inside the input */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 30px; /* Rounded corners */
-  margin-bottom: 10px; /* Space between input and button */
-  font-size: 16px; /* Font size */
-}
-
-.input-field {
+/* Example of Input fields and buttons */
+.input-field,
+.submit-button {
   width: 90%;
-  padding: 10px; /* Padding inside the input */
-  border: 1px solid #ccc; /* Light border */
-  border-radius: 30px; /* Rounded corners */
-  margin-bottom: 10px; /* Space between input and button */
-  font-size: 16px; /* Font size */
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .submit-button {
-  width: 100%; /* Full width */
-  padding: 10px; /* Button padding */
-  border: none; /* No border */
-  border-radius: 30px; /* Rounded corners */
-  background-color: #007bff; /* Button color */
-  color: white; /* Text color */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s; /* Smooth transition */
+  background-color: #2980b9;
+  color: white;
 }
 
 .submit-button:hover {
-  background-color: #007bff; /* Darker on hover */
-}
-
-.add-code-link {
-  margin-top: 30px; /* Space above the link */
-  text-decoration: none; /* Remove underline */
-  font-size: 14px; /* Font size */
-}
-.footer-link {
-  color: #007bff; /* Link color */
-}
-
-.footer-link:hover {
-  text-decoration: underline; /* Underline on hover */
+  background-color: #3498db;
 }

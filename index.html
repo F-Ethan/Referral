@@ -3,65 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Generate and submit Tesla referral links easily."
+    />
     <title>Random URL Generator</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css" />
 
-    <style>
-      /* Add your existing styles here */
-    </style>
+    <!-- Google Font for better typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="footer.css" />
   </head>
+
   <body>
-    <div class="image-container">
+    <div class="body-content">
+      <!-- Header Section -->
       <header class="header">
         <h1 class="site-name">Tesla Referral Generator</h1>
         <nav class="nav">
           <ul>
             <li><a href="#home" class="nav-link">Get</a></li>
-            <li><a href="#add" class="nav-link">Add </a></li>
+            <li><a href="#add" class="nav-link">Add</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </nav>
       </header>
-      <div class="body background">
-        <section id="home" class="page">
-          <div class="container">
-            <h1>Lets get you a Referral link</h1>
-            <div id="url" class="input-field-container">
-              Click the button to generate a URL
-            </div>
-            <button onclick="generateRandomURL()" class="submit-button">
-              Generate Random URL
-            </button>
-            <p class="add-code-link">
-              Have a Referral link? add it to our page
-              <a href="#about" class="footer-link nav-link">here</a>
-            </p>
-          </div>
-        </section>
 
-        <section id="add" class="page" style="display: none">
-          <div class="container">
-            <h1>Submit your link here</h1>
-            <div id="add-url" class="input-field-container">
-              <input
-                type="text"
-                id="inputField"
-                class="input-field"
-                placeholder="Add Your Link Here"
-              />
+      <main class="main-content">
+        <div class="page-body background">
+          <!-- Get Referral Link Section -->
+          <section id="home" class="page">
+            <div class="container">
+              <h1>Let’s get you a Referral link</h1>
+              <div id="url" class="input-field-container">
+                Click the button to generate a URL
+              </div>
+              <button
+                onclick="generateRandomURL()"
+                class="submit-button"
+                aria-label="Generate Random Referral URL"
+              >
+                Generate Random URL
+              </button>
+              <p class="add-code-link">
+                Have a Referral link? Add it to our page
+                <a href="#add" class="footer-link nav-link">here</a>
+              </p>
             </div>
-            <button class="submit-button" id="submitButton">
-              Submit your Link
-            </button>
-            <p class="add-code-link">
-              Need a Referral link? Get on
-              <a href="#home" class="footer-link">here</a>
-            </p>
-          </div>
-        </section>
-      </div>
+          </section>
+
+          <!-- Submit Referral Link Section -->
+          <section id="add" class="page">
+            <div class="container">
+              <h1>Submit your link here</h1>
+              <form id="add-link-form">
+                <div id="add-url" class="input-field-container">
+                  <input
+                    type="text"
+                    id="inputField"
+                    class="input-field"
+                    placeholder="Add Your Link Here"
+                    aria-label="Enter your referral link"
+                  />
+                </div>
+                <button
+                  class="submit-button"
+                  id="submitButton"
+                  aria-label="Submit Referral Link"
+                >
+                  Submit your Link
+                </button>
+              </form>
+              <p class="add-code-link">
+                Need a Referral link? Get on
+                <a href="#home" class="footer-link">here</a>
+              </p>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Tesla Resources</h3>
+          <ul>
+            <li><a href="#owners-guide">Owner’s Guide</a></li>
+            <li><a href="#referral-codes">Referral Codes</a></li>
+            <li><a href="#charging-stations">Charging Stations</a></li>
+            <li><a href="#software-updates">Software Updates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul class="social-links">
+            <li>
+              <a href="https://facebook.com" target="_blank">Facebook</a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank">Instagram</a>
+            </li>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+            <li><a href="#cookie-policy">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter Signup</h3>
+          <p>Stay updated! Enter your email and sign up for our newsletter.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email here" required />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2024 Tesla Refurral Exchange. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
+
+    <!-- External JS File -->
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

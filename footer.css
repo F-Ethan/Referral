@@ -1,0 +1,209 @@
+/* General Footer Styles */
+.footer {
+  width: 100%; /* Full width of the screen */
+  background-color: #2c3e50; /* Footer background color */
+  color: white; /* Text color */
+  padding: 20px 0; /* Vertical padding, horizontal padding will be handled inside */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width */
+  margin: 0; /* Remove any margin */
+  display: flex;
+  flex-direction: column; /* Stack footer sections vertically */
+  align-items: center; /* Center all items horizontally */
+  justify-content: center; /* Center content vertically */
+  position: relative; /* Allow for footer to stick to the bottom */
+}
+
+/* Footer Links and Sections */
+.footer .footer-section {
+  display: flex;
+  justify-content: space-between; /* Space out links in each section */
+  max-width: 1200px; /* Limit max width of footer content */
+  width: 100%; /* Full width of container */
+  padding: 10px 20px; /* Padding inside each section */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer .footer-section a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  margin: 5px 10px; /* Add space between links */
+  font-size: 14px; /* Text size */
+}
+
+.footer .footer-section a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Footer Copyright */
+.footer .copyright {
+  width: 100%; /* Full width */
+  text-align: center; /* Center the copyright text */
+  padding-top: 10px;
+  font-size: 12px; /* Smaller font size */
+  border-top: 1px solid #444; /* Optional border above the copyright */
+}
+
+/* Mobile & Tablet Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px 0; /* Adjust padding for small screens */
+  }
+
+  .footer .footer-section {
+    flex-direction: column; /* Stack footer sections vertically */
+    align-items: center; /* Center items for smaller screens */
+    text-align: center; /* Center the text in each section */
+  }
+
+  .footer .footer-section a {
+    font-size: 16px; /* Adjust font size for smaller screens */
+    margin: 5px; /* Reduce margin between links */
+  }
+
+  .footer .copyright {
+    padding-top: 5px; /* Adjust padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 5px 0; /* Further adjust padding for very small screens */
+  }
+
+  .footer .footer-section {
+    padding: 5px 10px; /* Reduce padding in each section */
+  }
+
+  .footer .footer-section a {
+    font-size: 14px; /* Adjust font size further */
+    margin: 3px; /* Adjust margin */
+  }
+
+  .footer .copyright {
+    font-size: 10px; /* Smaller font size for copyright */
+  }
+}
+
+/* Social Media Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* Center social icons on larger screens */
+}
+
+.social-links li a {
+  color: #e8e8e8;
+  text-decoration: none;
+}
+
+.social-links li a:hover {
+  text-decoration: underline;
+}
+
+/* General Newsletter Section */
+.newsletter-container {
+  width: 100%; /* Ensure the container doesn't overflow */
+  max-width: 600px; /* Max width for the form */
+  margin: 20px auto; /* Center the form horizontally */
+  padding: 20px;
+  background-color: #f5f5f5; /* Optional background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Newsletter input field and button */
+.newsletter-container input,
+.newsletter-container button {
+  width: 100%; /* Ensure it takes full width of the container */
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Input field specific styles */
+.newsletter-container input {
+  font-size: 14px;
+  max-width: 100%; /* Prevents overflow */
+}
+
+/* Button specific styles */
+.newsletter-container button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Ensure the form is responsive on smaller screens */
+@media (max-width: 768px) {
+  .newsletter-container {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .newsletter-container input,
+  .newsletter-container button {
+    font-size: 14px; /* Smaller font size for better readability */
+  }
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.newsletter-form button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background-color: #0056b3;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    min-width: 100%;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
