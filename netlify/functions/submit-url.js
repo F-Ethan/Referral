@@ -1,7 +1,6 @@
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const { request } = require("express");
-const fetch = require("node-fetch"); // Import fetch for Node.js
 
 // Use a MongoDB URI stored in environment variables for security
 const mongoURI = process.env.mongoUri;
@@ -14,6 +13,9 @@ exports.handler = async (event, context) => {
     "Access-Control-Allow-Methods": "POST, OPTIONS", // Allow POST and OPTIONS methods
     "Access-Control-Allow-Headers": "Content-Type", // Allow content-type headers
   };
+
+  // Dynamically import node-fetch
+  const fetch = await import("node-fetch"); // Dynamic import
 
   console.log("making progress");
 
