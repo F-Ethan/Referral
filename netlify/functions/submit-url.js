@@ -100,12 +100,14 @@ exports.handler = async (event, context) => {
     try {
       // Connect to MongoDB
       await client.connect();
+      console.log("connected");
       const db = client.db(dbName);
       const collection = db.collection("URLs");
 
       // Insert the new URL into the MongoDB collection
+      console.log("insert One");
       const result = await collection.insertOne({ url });
-
+      console.log("one Inserted");
       // Return success response with the inserted URL
       return {
         statusCode: 201, // Created
