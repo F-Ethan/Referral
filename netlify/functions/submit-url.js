@@ -46,24 +46,39 @@ exports.handler = async (event, context) => {
 
     const { url } = requestBody;
 
+    // Validate the URL format
     function isValidUrl(url) {
       const regex = /^https:\/\/ts\.la\/[a-zA-Z0-9]+[0-9]+$/;
       return regex.test(url);
     }
 
-    async function validateAndCheckUrl(url) {
-      if (!isValidUrl(url)) {
-        console.log("Invalid URL format.");
+    // Function to check if the URL is reachable (you might want to implement this)
+    async function checkUrl(url) {
+      try {
+        const response = await fetch(url); // Assuming you use `fetch` to check the URL's reachability
+        return response.ok; // Check if the response status is OK (200-299)
+      } catch (error) {
+        console.log("Error checking URL:", error);
         return false;
       }
+    }
 
-      const isValid = await validateAndCheckUrl(url);
-      if (isValid) {
+    // Function to validate and check if the URL is valid and reachable
+    async function validateAndCheckUrl(url) {
+      // Step 1: Validate URL format
+      if (!isValidUrl(url)) {
+        console.log("Invalid URL format.");
+        return false; // Stop here if the URL format is invalid
+      }
+
+      // Step 2: Check if the URL is reachable
+      const isReachable = await checkUrl(url);
+      if (isReachable) {
         console.log("URL is valid and reachable.");
-        return true;
+        return true; // Valid and reachable
       } else {
         console.log("URL is either unreachable or returns a 404.");
-        return false;
+        return false; // Not reachable or 404
       }
     }
 
