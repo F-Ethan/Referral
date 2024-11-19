@@ -44,9 +44,10 @@ document.getElementById("submitButton").addEventListener("click", async () => {
   try {
     // Send the referral code to the serverless function for submission
     const response = await fetch(
-      // "https://teslareferral.netlify.app/.netlify/functions/submit",
+      "https://teslareferral.netlify.app/.netlify/functions/submit-url", // Netlify serverless function
 
-      "http://localhost:8888/.netlify/functions/submit-url", // local server url
+      // "http://localhost:8888/.netlify/functions/submit-url", // local server url
+
       {
         method: "POST", // Use POST method
         headers: {
