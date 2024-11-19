@@ -1,6 +1,7 @@
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const { request } = require("express");
+const fetch = require("node-fetch"); // Import fetch for Node.js
 
 // Use a MongoDB URI stored in environment variables for security
 const mongoURI = process.env.mongoUri;
@@ -52,13 +53,21 @@ exports.handler = async (event, context) => {
       return regex.test(url);
     }
 
-    // Function to check if the URL is reachable (you might want to implement this)
+    // Function to check if the URL is reachable
     async function checkUrl(url) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 seconds timeout
+
       try {
-        const response = await fetch(url); // Assuming you use `fetch` to check the URL's reachability
-        return response.ok; // Check if the response status is OK (200-299)
+        const response = await fetch(url, { signal: controller.signal }); // Pass signal for timeout
+        clearTimeout(timeoutId); // Clear timeout if fetch is successful
+        return response.ok; // Return true if status is 2xx
       } catch (error) {
-        console.log("Error checking URL:", error);
+        if (error.name === "AbortError") {
+          console.log("URL check timed out");
+        } else {
+          console.log("Error checking URL:", error);
+        }
         return false;
       }
     }
