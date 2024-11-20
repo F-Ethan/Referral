@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 // Helper function to fetch and display a random URL
 async function generateRandomURL() {
   try {
@@ -74,6 +76,7 @@ document.getElementById("submitButton").addEventListener("click", async () => {
     alert(`${url} has been added to our list of referral codes.`);
   } catch (error) {
     console.error("Error submitting referral code:", error);
+    console.error(response.json);
     alert("Failed to submit referral code. Please try again later.");
   }
 });
