@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
     // Function to check if the URL is reachable
     async function checkUrl(url) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 seconds timeout
+      const timeoutId = setTimeout(() => controller.abort(), 9000); // 9 seconds timeout
 
       try {
         const response = await fetch(url, { signal: controller.signal }); // Pass signal for timeout
@@ -97,8 +97,10 @@ exports.handler = async (event, context) => {
     console.log("is it true");
     const isUrlValid = await validateAndCheckUrl(url);
     console.log(url);
+    console.log(isUrlValid);
 
     if (!isUrlValid) {
+      console.log("return 400");
       return {
         statusCode: 400, // Bad Request
         headers,
