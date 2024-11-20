@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
   };
 
   // Dynamically import node-fetch
-  const fetch = await import("node-fetch"); // Dynamic import
+  const { default: fetch } = await import("node-fetch"); // Access 'default' from the imported module
 
   console.log("making progress");
 
