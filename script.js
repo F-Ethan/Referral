@@ -57,8 +57,13 @@ document.getElementById("submitButton").addEventListener("click", async () => {
       }
     );
 
-    // Handle non-OK responses
-    if (!response.ok) throw new Error("Failed to submit referral code");
+    // Handle non-OK responses with more detailed error handling
+    if (!response.ok) {
+      const errorDetails = await response.json();
+      throw new Error(
+        `Failed to submit referral code. Status: ${response.status}, Body: ${errorDetails}`
+      );
+    }
 
     // Log the response for debugging
     const data = await response.json();
