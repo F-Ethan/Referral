@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 // Helper function to fetch and display a random URL
 async function generateRandomURL() {
   try {
@@ -46,9 +44,9 @@ document.getElementById("submitButton").addEventListener("click", async () => {
   try {
     // Send the referral code to the serverless function for submission
     const response = await fetch(
-      "https://teslareferral.netlify.app/.netlify/functions/submit-url", // Netlify serverless function
+      // "https://teslareferral.netlify.app/.netlify/functions/submit-url", // Netlify serverless function
 
-      // "http://localhost:8888/.netlify/functions/submit-url", // local server url
+      "http://localhost:8888/.netlify/functions/submit-url", // local server url
 
       {
         method: "POST", // Use POST method

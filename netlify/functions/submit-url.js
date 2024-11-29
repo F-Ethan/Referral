@@ -57,21 +57,22 @@ exports.handler = async (event, context) => {
 
     // Function to check if the URL is reachable
     async function checkUrl(url) {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 9000); // 9 seconds timeout
+      // const controller = new AbortController();
+      // const timeoutId = setTimeout(() => controller.abort(), 9000); // 9 seconds timeout
 
-      try {
-        const response = await fetch(url, { signal: controller.signal }); // Pass signal for timeout
-        clearTimeout(timeoutId); // Clear timeout if fetch is successful
-        return response.ok; // Return true if status is 2xx
-      } catch (error) {
-        if (error.name === "AbortError") {
-          console.log("URL check timed out");
-        } else {
-          console.log("Error checking URL:", error);
-        }
-        return false;
-      }
+      // try {
+      //   const response = await fetch(url, { signal: controller.signal }); // Pass signal for timeout
+      //   clearTimeout(timeoutId); // Clear timeout if fetch is successful
+      //   return response.ok; // Return true if status is 2xx
+      // } catch (error) {
+      //   if (error.name === "AbortError") {
+      //     console.log("URL check timed out");
+      //   } else {
+      //     console.log("Error checking URL:", error);
+      //   }
+      //   return false;
+      // }
+      return true;
     }
 
     // Function to validate and check if the URL is valid and reachable
