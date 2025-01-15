@@ -1,0 +1,154 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+  color: #111;
+}
+
+p {
+  font-size: 1.1em;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+/* Sections */
+section {
+  padding: 50px 0;
+}
+
+.intro,
+.referral-owners {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.intro h2,
+.referral-owners h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.intro ul,
+.referral-owners ul {
+  margin-top: 20px;
+}
+
+.intro ul li,
+.referral-owners ul li {
+  margin-bottom: 10px;
+}
+
+.cta-button {
+  background-color: #0074d9;
+  color: #fff;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #005bb5;
+}
+
+/* Two-column layout for the Why Participate section */
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 48%;
+}
+
+.column h3 {
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* CTA section */
+.cta {
+  background-color: #0074d9;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.cta h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.cta-buttons a {
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  background-color: #fff;
+  color: #0074d9;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.cta-buttons a:hover {
+  background-color: #005bb5;
+  color: #fff;
+}
